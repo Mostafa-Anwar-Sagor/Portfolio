@@ -1,0 +1,116 @@
+import 'package:flutter/material.dart';
+import 'package:muzammil_hussain/extensions/context_ext.dart';
+import '../providers/app_state_provider.dart';
+import 'package:provider/provider.dart';
+
+import 'animations/circular_reveal.dart';
+
+class SplashPage extends StatefulWidget {
+  const SplashPage({super.key});
+
+  @override
+  State<SplashPage> createState() => _SplashPageState();
+}
+
+class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
+  late AnimationController _gradientAnimationController;
+  late AnimationController _textAnimationController;
+  late Animation<double> _gradientAnimation;
+  late Animation<double> _textAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    double lowerBoumd = 0.0;
+    double upperBoumd = 1;
+
+    _gradientAnimationController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 3),
+      lowerBound: lowerBoumd,
+      upperBound: upperBoumd,
+    );
+    _gradientAnimation =
+        Tween<double>(begin: lowerBoumd, end: upperBoumd).animate(
+      CurvedAnimation(
+        parent: _gradientAnimationController,
+        curve: Cubic(.14, .59, .84, -0.31),
+      ),
+    );
+
+    _textAnimationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1200),
+      lowerBound: lowerBoumd,
+      upperBound: upperBoumd,
+    );
+
+    Cubic easeOutBack = Cubic(0.175, 0.9, 0.48, 1.375);
+    _textAnimation = Tween<double>(begin: lowerBoumd, end: upperBoumd).animate(
+      CurvedAnimation(
+        parent: _textAnimationController,
+        curve: easeOutBack,
+      ),
+    );
+
+    _textAnimationController.forward();
+    _gradientAnimationController.forward();
+    Future.delayed(Duration(seconds: 4), () {
+      // Navigator.of(context).push(CustomPageRoute(HomePage()));
+      context.read<AppStateProvider>().setNavAnimationStatus(true);
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: AnimatedContainer(
+        color: Theme.of(context).colorScheme.secondary,
+        duration: Duration(milliseconds: 250),
+        child: CircularRevealAnimation(
+          animation: _gradientAnimation,
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              Positioned.fill(
+                child: Container(
+                  color: Colors.black,
+                ),
+              ),
+              Align(
+                alignment: Alignment.center,
+                child: AnimatedBuilder(
+                    animation: _textAnimation,
+                    builder: (context, animation) {
+                      return Transform.scale(
+                        scale: _textAnimation.value,
+                        child: Text.rich(
+                          TextSpan(
+                            text: "MA",
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleLarge
+                                ?.copyWith(
+                                    fontSize: context.isMobile ? 50 : 80,
+                                    letterSpacing: 2),
+                            children: [
+                              TextSpan(
+                                text: ".",
+                                style: TextStyle(
+                                  color:
+                                      Theme.of(context).colorScheme.secondary,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    }),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
