@@ -136,9 +136,9 @@ const RESOURCES = {"assets/AssetManifest.json": "5b8ccf834caa613e593aec7b7820bc7
 "canvaskit/skwasm_st.js": "d1326ceef381ad382ab492ba5d96f04d",
 "canvaskit/canvaskit.js.symbols": "68eb703b9a609baef8ee0e413b442f33",
 "canvaskit/skwasm_st.js.symbols": "c7e7aac7cd8b612defd62b43e3050bdd",
-"index.html": "bf69ffd4cda3330412a13f6e092febd4",
-"/": "bf69ffd4cda3330412a13f6e092febd4",
-"flutter_bootstrap.js": "6b9d1dc1498e0cb7ea0739524f262636",
+"index.html": "6ca50d7036eec9e6a898b3b2e487a48c",
+"/": "6ca50d7036eec9e6a898b3b2e487a48c",
+"flutter_bootstrap.js": "adb47a9df792b8c4a70fa41aa42491a2",
 "icons/site.webmanifest": "a6a636d6bfee2224e905352a35a94d79",
 "icons/android-chrome-384x384.png": "967af6e3650b3d54663bde09765e770b",
 "icons/safari-pinned-tab.svg": "b8db607890085bad9d909602d1ae3062",
@@ -146,7 +146,7 @@ const RESOURCES = {"assets/AssetManifest.json": "5b8ccf834caa613e593aec7b7820bc7
 "icons/browserconfig.xml": "a493ba0aa0b8ec8068d786d7248bb92c",
 "verce.json": "366fa832af1724c6cd5ccf716b1c73cc",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
-"main.dart.js": "5d1b49eaeb6eedabfb7637c8a56567e7"};
+"main.dart.js": "71691e06f339edd03d8398362e23d0f1"};
 // The application shell files that are downloaded before a service worker can
 // start.
 const CORE = ["main.dart.js",
