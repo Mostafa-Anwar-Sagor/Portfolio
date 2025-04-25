@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class AnimatedCursorState {
   static final BoxDecoration kDefaultDecoration = BoxDecoration(
+    // ignore: deprecated_member_use
     border: Border.all(color: Colors.white.withOpacity(0.8), width: 1),
     shape: BoxShape.circle,
   );

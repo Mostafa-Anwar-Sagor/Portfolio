@@ -1,0 +1,30 @@
+name: Build & Deploy Flutter Web to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+
+      - name: Install packages
+        run: flutter pub get
+
+      - name: Build Web (for /portfolio-/)
+        run: flutter build web --release --base-href /portfolio-/
+
+      - name: Publish to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_dir: build/web
+          publish_branch: gh-pages
+          github_token: ${{ secrets.GITHUB_TOKEN }}

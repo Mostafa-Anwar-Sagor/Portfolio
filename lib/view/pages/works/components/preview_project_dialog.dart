@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:muzammil_hussain/extensions/context_ext.dart';
@@ -272,6 +274,8 @@ class PreviewProjectDialog extends StatelessWidget {
               text: item.features,
               style: TextStyle(
                 fontWeight: FontWeight.w600,
+                // ignore: duplicate_ignore
+                // ignore: deprecated_member_use
                 color: Colors.white.withOpacity(0.9),
               ),
             ),
@@ -310,6 +314,8 @@ class PreviewProjectDialog extends StatelessWidget {
               text: item.stateManagement,
               style: TextStyle(
                 fontWeight: FontWeight.w600,
+                // ignore: duplicate_ignore
+                // ignore:deprecated_member_use
                 color: Colors.white.withOpacity(0.9),
               ),
             ),

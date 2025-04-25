@@ -71,6 +71,7 @@ class ThemeConfig {
         ),
       ).apply(
         bodyColor: AppColors.white,
+        // ignore: deprecated_member_use
         displayColor: AppColors.white.withOpacity(0.9),
         decorationColor: AppColors.white,
       ),

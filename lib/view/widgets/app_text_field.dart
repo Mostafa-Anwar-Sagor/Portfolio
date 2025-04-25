@@ -27,6 +27,7 @@ class AppTextField extends StatelessWidget {
         contentPadding: EdgeInsets.only(left: 0, bottom: 14),
         labelText: label,
         labelStyle: TextStyle(
+          // ignore: deprecated_member_use
           color: Colors.white.withOpacity(0.8),
           fontSize: 14,
           fontFamily: "Raleway",
