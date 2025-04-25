@@ -19,8 +19,8 @@ jobs:
       - name: Install packages
         run: flutter pub get
 
-      - name: Build Web (for /portfolio-/)
-        run: flutter build web --release --base-href /portfolio-/
+      - name: Build Web (for /portfolio/)
+        run: flutter build web --release --base-href /portfolio/
 
       - name: Publish to gh-pages
         uses: peaceiris/actions-gh-pages@v3
